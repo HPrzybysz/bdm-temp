@@ -1,0 +1,22 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "plugins": [
+    "stylelint-declaration-strict-value",
+    "stylelint-prettier",
+    "stylelint-scss"
+  ],
+  "rules": {
+    "block-no-empty": true,
+    "block-opening-brace-newline-after": ["always"],
+    "block-closing-brace-newline-before": ["always"],
+    "declaration-colon-space-after": "always",
+    "function-comma-space-after": "always",
+    "max-nesting-depth": 4,
+    "number-leading-zero": "always",
+    "prettier/prettier": true,
+    "selector-class-pattern": "(Mui[\\w-])|([\\w-])",
+    "selector-max-compound-selectors": 4,
+    "sh-waqar/declaration-use-variable": [["/color/", "font-size", { "ignoreValues": ["transparent", "inherit"] }]],
+    "value-list-comma-space-after": "always"
+  }
+}

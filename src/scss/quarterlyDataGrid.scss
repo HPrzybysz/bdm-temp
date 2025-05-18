@@ -1,0 +1,82 @@
+@use "variables" as *;
+
+.quarterly-data-grid {
+  width: 100%;
+  height: 600px;
+  position: relative;
+
+  .MuiDataGrid-root {
+    font-size: 0.75rem;
+    border: 1px solid $line2;
+    border-radius: 4px;
+
+    .MuiDataGrid-columnHeader {
+      background-color: $line1;
+      padding: 4px 8px;
+
+      &TitleContainer {
+        justify-content: center;
+      }
+    }
+
+    .MuiDataGrid-columnGroupHeader {
+      background-color: darken($line1, 10%) !important;
+      font-weight: bold;
+    }
+
+    .MuiDataGrid-cell {
+      padding: 4px 8px;
+      border-right: 1px solid $line2;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    .MuiDataGrid-pinnedColumns--left {
+      background-color: $line1;
+      box-shadow: 2px 0 4px -2px rgba(0, 0, 0, 0.2);
+
+      .MuiDataGrid-cell {
+        background-color: inherit;
+      }
+    }
+
+    .MuiDataGrid-columnSeparator {
+      display: none;
+    }
+  }
+
+  .custom-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .annotation-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: $additional-green1;
+    color: $text-secondary;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+
+  .annotation-tooltip {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .MuiDataGrid-root {
+      min-width: 800px;
+    }
+  }
+}

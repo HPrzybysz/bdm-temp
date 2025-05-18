@@ -1,0 +1,13 @@
+@use "@/scss/variables" as *;
+
+@font-face {
+  font-family: "FiraSans";
+  src: url("@/fonts/FiraSans-Regular.ttf") format("truetype");
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "FiraSans-Regular", sans-serif;
+  margin: 0;
+}

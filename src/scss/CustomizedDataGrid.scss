@@ -1,0 +1,167 @@
+:root {
+  --DataGrid-rowHeight: 36px;
+  --DataGrid-headerHeight: 40px;
+}
+
+.customized-data-grid-container {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  background-color: #F5F6FA;
+
+  .pinned-columns-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    background-color: #F5F6FA;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .pinned-column {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #e0e0e0;
+
+      .pinned-header {
+        height: var(--DataGrid-headerHeight);
+        min-height: var(--DataGrid-headerHeight);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        background-color: #E6E9F4;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .pinned-cells {
+        flex: 1;
+        overflow: hidden;
+
+        > div {
+          height: var(--DataGrid-rowHeight);
+          min-height: var(--DataGrid-rowHeight);
+          display: flex;
+          align-items: center;
+          padding: 0 16px;
+          border-bottom: 1px solid #e0e0e0;
+          background-color: #F5F6FA;
+        }
+      }
+    }
+
+    .unit-column {
+      width: 120px;
+
+      .pinned-header,
+      .pinned-cells > div {
+        padding: 0 8px;
+      }
+    }
+
+    .pointer-column {
+      width: 300px;
+    }
+  }
+
+  .scrollable-content {
+    position: absolute;
+    left: 300px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    border-left: 1px solid #e0e0e0;
+
+    &.with-unit-pinned {
+      left: 420px;
+    }
+
+    .MuiDataGrid-root {
+      width: fit-content;
+      min-width: 100%;
+
+      .MuiDataGrid-columnHeaders {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: #E6E9F4;
+      }
+
+      .MuiDataGrid-virtualScroller {
+        margin-top: var(--DataGrid-headerHeight) !important;
+      }
+
+      .MuiDataGrid-cell {
+        border-right: 1px solid #e0e0e0 !important;
+
+        &:last-child {
+          border-right: none !important;
+        }
+      }
+
+      .MuiDataGrid-row {
+        min-height: var(--DataGrid-rowHeight) !important;
+        max-height: var(--DataGrid-rowHeight) !important;
+
+        .MuiDataGrid-cell {
+          min-height: var(--DataGrid-rowHeight) !important;
+          max-height: var(--DataGrid-rowHeight) !important;
+          display: flex !important;
+          align-items: center !important;
+          padding: 0 8px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .customized-data-grid-container {
+    height: 400px;
+
+    .pinned-columns-container {
+      .pointer-column {
+        width: 200px !important;
+      }
+
+      .unit-column {
+        width: 100px !important;
+      }
+    }
+
+    .scrollable-content {
+      left: 200px !important;
+
+      &.with-unit-pinned {
+        left: 300px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .customized-data-grid-container {
+    height: 300px;
+
+    .pinned-columns-container {
+      .pointer-column {
+        width: 150px !important;
+      }
+
+      .unit-column {
+        width: 80px !important;
+      }
+    }
+
+    .scrollable-content {
+      left: 150px !important;
+
+      &.with-unit-pinned {
+        left: 230px !important;
+      }
+    }
+  }
+}

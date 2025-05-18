@@ -1,0 +1,66 @@
+@use "variables" as *;
+
+@font-face {
+  font-family: "FiraSans-Medium";
+  src: url(../fonts/FiraSans-Medium.ttf) format("truetype");
+}
+
+.data-scope-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  .data-scope-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    font-family: "FiraSans-Medium", sans-serif;
+    box-shadow: none;
+
+    .MuiButton-root {
+      text-transform: none;
+      background-color: white;
+      color: $text-secondary;
+      border: 1px solid $line2 !important;
+      transition: all 0.3s ease;
+      box-shadow: none;
+      padding: 0.8rem;
+
+      &:hover {
+        background-color: $line1;
+        text-decoration: underline;
+      }
+
+      &.active {
+        background-color: $line1;
+        color: $text-secondary;
+      }
+    }
+  }
+  .view-content {
+    padding: 20px;
+    background-color: $white;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px;
+
+    .data-scope-buttons {
+      flex-direction: row;
+      width: 100%;
+      box-shadow: none;
+
+      .MuiButton-root {
+        width: 100%;
+        margin: 2px 0;
+      }
+    }
+
+    .view-content {
+      padding: 15px;
+    }
+  }
+}
